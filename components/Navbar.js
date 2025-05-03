@@ -6,13 +6,10 @@ import {useRef,useEffect} from 'react'
 import { AiOutlineShoppingCart,AiFillCloseCircle,AiFillPlusCircle,AiFillMinusCircle } from 'react-icons/ai';  
 import {BsFillBagCheckFill} from 'react-icons/bs' 
 import {MdAccountCircle} from 'react-icons/md' 
-
-
  // first two letter like Ai we have to put in 'react-icons/ai'
 const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {    
-  
+      const ref = useRef();
 
-  
    const toggleCart = ()=>{
       if(ref.current.classList.contains('translate-x-full')){
         ref.current.classList.remove('translate-x-full')
@@ -24,7 +21,6 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
 
       }
    } 
-   const ref = useRef();
   return (
     <div className='sticky top-0 z-10  bg-white flex flex-col md:flex-row md:justify-start items-center  py-2 shadow-md'> 
      <div className="logo mx-5"> 
@@ -49,7 +45,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
         <AiOutlineShoppingCart  onClick={toggleCart}  className='  text-xl md:text-2xl  mt-2'/> 
      </div>  
 
-    { /* <div ref={ref} className={`w-72 sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform ${Object.keys(cart).length!==0?'translate-x-0':'translate-x-full'}`}>   {/*ref is use to handle the hold whole div tag 
+    <div ref={ref} className={`w-72 sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform ${Object.keys(cart).length!==0?'translate-x-0':'translate-x-full'}`}>   {/*ref is use to handle the hold whole div tag */}
             <h2 className='font-bold text-xl text-center'>Shoping Cart </h2>  
             <span onClick={toggleCart} className='absolute top-5 right-2 cursor-pointer text-2xl text-pink-500'><AiFillCloseCircle /></span>
             <ol className='list-decimal font-semibold'>  
@@ -78,7 +74,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
             <button onClick={clearCart} className="my-3 flex-shrink-0 text-white bg-pink-500 border-0 py-2 px-5 focus:outline-none hover:bg-pink-600 rounded text-lg mt-10 sm:mt-0">Clear cart</button> 
             </div>
 
-      </div> */}
+      </div> 
      
               
     </div>
